@@ -1,25 +1,27 @@
 h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    text-align: center;
     font-size: 40px;
-    color: green;
+    color: rgb(90, 0, 117);
+    text-align:center;
 }
 
 body {
     padding: 20px;
     display: block;
     margin: 0 auto;
-    background: linear-gradient(to top, rgb(161, 140, 209) 0%, rgb(251, 194, 235) 100%);
+    background: linear-gradient(110.5deg, rgba(248, 196, 249, 0.66) 22.8%, rgba(253, 122, 4, 0.15) 64.6%);;
 }
 
 .card-box {
     background-image: url("https://img.freepik.com/premium-photo/light-blue-sky-with-clouds-may-be-used-as-background_483040-5714.jpg?w=2000");
+    border-radius: 10px;
+    padding: 20px 10px;
 }
 
 .submit {
     background-color: mediumblue;
     color: #efefef;
-    border: none;
+    border: none;   
     text-align: center;
     display: block;
     padding: 10px 15px;
@@ -74,3 +76,29 @@ h3 {
     color: navy;
     text-transform:capitalize;
 }
+
+ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  
+  }
+
+  
+
+  .temp{
+    text-align:left;
+  }
+
+ .units {
+    position: relative;
+    font-size: 20px;
+    top: -30px;
+  }
+
+  
