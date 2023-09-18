@@ -1,0 +1,76 @@
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 40px;
+    color: green;
+}
+
+body {
+    padding: 20px;
+    display: block;
+    margin: 0 auto;
+    background: linear-gradient(to top, rgb(161, 140, 209) 0%, rgb(251, 194, 235) 100%);
+}
+
+.card-box {
+    background-image: url("https://img.freepik.com/premium-photo/light-blue-sky-with-clouds-may-be-used-as-background_483040-5714.jpg?w=2000");
+}
+
+.submit {
+    background-color: mediumblue;
+    color: #efefef;
+    border: none;
+    text-align: center;
+    display: block;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: 100ms ease-in-out;
+    border-radius: 7.5px;
+    margin: 0 auto;
+}
+
+.submit:hover {
+    color: whitesmoke;
+    background-color: mediumvioletred;
+}
+
+.text {
+    padding: 12.5px;
+    display: block;
+    margin: 0 auto;
+}
+
+.img1 {
+    display: block;
+    margin: 0 auto;
+}
+
+.days {
+    display: block;
+    width: 75px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+    color: darkred;
+}
+
+button {
+    padding: 10px 10px;
+    border-radius: 8px;
+    background-color: green;
+    color: #efefef;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    text-align: center;
+    font-size: 20px;
+    color: navy;
+    text-transform:capitalize;
+}
