@@ -59,6 +59,17 @@ function showPosition(position) {
       let cityNameElement = document.querySelector(".city-name");
       temperatureElement.innerHTML = response.data.main.temp;
       cityNameElement.innerHTML = response.data.name;
+      let humidityElement = document.querySelector("#humidity");
+      let windElement = document.querySelector("#wind");
+      let iconElement = document.querySelector("#icon");
+      humidityElement.innerHTML = response.data.main.humidity;
+      windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
+      iconElement.setAttribute(
+        "src",
+        `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+      );
+      iconElement.setAttribute("alt", response.data.weather[0].description);
+    
     })
     .catch(function (error) {
       console.error("Weather API Error:", error);
