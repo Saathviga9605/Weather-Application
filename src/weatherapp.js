@@ -36,18 +36,30 @@ form.addEventListener("submit", search);
 let apikey = "9aea41cabd59435563a6686b4ee04401";
 
 function fetchWeather(city) {
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
+  
+    axios.get(apiUrl).then(function (response) {
+      let temperatureElement = document.querySelector("#temperature");
+      let descriptionElement = document.querySelector("h3");
+      let humidityElement = document.querySelector("#humidity");
+      let windElement = document.querySelector("#wind");
+      let iconElement = document.querySelector("#icon");
+  
+      let temperature = Math.round(response.data.main.temp);
+      let description = response.data.weather[0].description;
+      let humidity = response.data.main.humidity;
+      let windSpeed = Math.round(response.data.wind.speed * 3.6);
+      let iconUrl = `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
+  
+      temperatureElement.innerHTML = `${temperature}`;
+      descriptionElement.innerHTML = `${description}`;
+      humidityElement.innerHTML = `${humidity}`;
+      windElement.innerHTML = `${windSpeed}`;
+      iconElement.setAttribute("src", iconUrl);
+      iconElement.setAttribute("alt", description);
+    });
+  }
 
-  axios.get(apiUrl).then(function (response) {
-    let temp = document.querySelector("#temperature");
-    let temperature = Math.round(response.data.main.temp);
-    let description = response.data.weather[0].description;
-    let h3 = document.querySelector("h3");
-    h3.innerHTML = `${description}`;
-
-    temp.innerHTML = `${temperature}`;
-  });
-}
 
 function showPosition(position) {
   let apiurl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apikey}&units=metric`;
@@ -65,8 +77,7 @@ function showPosition(position) {
       humidityElement.innerHTML = response.data.main.humidity;
       windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
       iconElement.setAttribute(
-        "src",
-        `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+        "src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
       );
       iconElement.setAttribute("alt", response.data.weather[0].description);
     
