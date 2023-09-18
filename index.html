@@ -33,16 +33,14 @@
               <h1> <span class="city-name">Chennai </span></h1>
           <h2 class="calendar"></h2>
           <h1>
-            <div class="d-flex weather-temperature">
+            <span>
               <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="Clear" id="icon" class="icon" />
-              <div class="temp">
                 <strong id="temperature"> 12</strong
                 ><span class="units">℃|℉</span>
-              </div>
-            </div>
+            </span>
           </h1></div>
-          <div class="col-6"><h3>
-            Scattered Thunderstorms
+          <div class="col-6"><h3 class="description">
+            Clear Sky</h3><h3>
             <ul>
               <li>Humidity: <span id="humidity"></span>%</li>
               <li>Wind: <span id="wind"></span> km/ h</li>
@@ -50,24 +48,27 @@
           </h3>
         </div>
         </div>
-          <h2>Enter the city you wish to check for:</h2>
-          <form id="search-form">
-            <input
-              type="text"
-              class="text"
-              placeholder="Enter city name"
-              id="search"
-            />
-            <div class="button-container">
-              <div class="current">
-                <button type="button" id="current-location-btn">
-                  Current location
-                </button>
+          <h2 class="city">Type the name of the city you're looking for:</h2>
+          <form id="search-form" class="mb-3">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="text"
+                  placeholder="Enter city name"
+                  class="text"
+                  id="search"
+                  autocomplete="off"
+                />
               </div>
-              <div>
-                <input type="submit" value="Search" class="submit" />
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="submit"
+                />
               </div>
             </div>
+          </form>   </div>
           </form>
           <br />
           <br />
