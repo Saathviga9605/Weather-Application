@@ -33,6 +33,29 @@ function search(event) {
 
 form.addEventListener("submit", search);
 
+function displayForecast(){
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function(day) {
+    forecastHTML += `
+      <div class="col-2">
+        <div class="weather-forecast-date">${day}</div>
+        <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="" width="42px">
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max">18°</span>
+          <span class="weather-forecast-temperature-min">12°</span>
+        </div>
+      </div>`;
+  });
+
+  forecastHTML += `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+
 let apikey = "9aea41cabd59435563a6686b4ee04401";
 
 function fetchWeather(city) {
@@ -62,6 +85,8 @@ function fetchWeather(city) {
       iconElement.setAttribute("alt", description);
     });
   }
+
+  displayForecast();
 
   function showPosition(position) {
     let apiurl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apikey}&units=metric`;
