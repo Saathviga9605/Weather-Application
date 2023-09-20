@@ -1,9 +1,7 @@
 let now = new Date();
 let h2 = document.querySelector(".calendar");
-
 let minutes = now.getMinutes();
 let hours = now.getHours();
-
 let days = [
   "Sunday",
   "Monday",
@@ -14,15 +12,12 @@ let days = [
   "Saturday"
 ];
 let day = days[now.getDay()];
-
 if (minutes < 10) {
   h2.innerHTML = `${day}, ${hours}:0${minutes}`;
 } else {
   h2.innerHTML = `${day}, ${hours}:${minutes}`;
 }
-
 let form = document.querySelector("#search-form");
-
 function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector(".text");
@@ -32,10 +27,6 @@ function search(event) {
 }
 
 form.addEventListener("submit", search);
-
-  forecastHTML += `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-
 
 
 let apikey = "9aea41cabd59435563a6686b4ee04401";
@@ -49,9 +40,7 @@ function fetchWeather(city) {
       let humidityElement = document.querySelector("#humidity");
       let windElement = document.querySelector("#wind");
       let iconElement = document.querySelector("#icon");
-
       celsiusTemperature= response.data.main.temp;
-
   
       let temperature = Math.round(celsiusTemperature);
       let description = response.data.weather[0].description;
@@ -70,7 +59,7 @@ function fetchWeather(city) {
 
   function showPosition(position) {
     let apiurl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apikey}&units=metric`;
-  
+
     axios
       .get(apiurl)
       .then(function (response) {
@@ -98,7 +87,6 @@ function fetchWeather(city) {
         console.error("Weather API Error:", error);
       });
   }
-
   function changeintofahrenheit(event) {
     event.preventDefault();
     let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
@@ -112,11 +100,9 @@ function fetchWeather(city) {
     temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}`;
   }
   
-
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
-
 let celsiusTemperature=null;
 
 let button = document.querySelector("#current-location-btn");
@@ -127,4 +113,3 @@ fahrenheit.addEventListener("click", changeintofahrenheit);
 
 let celsius= document.querySelector("#celsius");
 celsius.addEventListener("click", changeintocelsius);
-
